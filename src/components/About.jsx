@@ -67,8 +67,7 @@ const About = () => {
         goal, I never like to settle for anything less than excellence. I
         believe that attention to detail and a commitment to quality are what
         separate good work from great work, and I want to ensure I give the best
-        work in anything I do. You can further connect with me through LinkedIn
-        @ramsrivatsanganesh, or email me at ramsrivatsang38@gmail.com
+        work in anything I do. 
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

@@ -132,7 +132,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "August 2022 - May 2026",
     points: [
-      "I am currently studying software engineering at Iowa State University, while pursuing a minor in Cybersecuirty.",
+      "I am currently studying software engineering at Iowa State University, while pursuing a minor in Cybersecurity.",
 
     ],
   },

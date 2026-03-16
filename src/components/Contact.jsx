@@ -25,23 +25,38 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
+  
     setLoading(true);
+  
     emailjs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        { from_name: form.name, to_name: "Personal Website Inquiries", from_email: form.email, to_email: "ramsrivatsang38@gmail.com", message: form.message },
+        {
+          from_name:  form.name.trim(),
+          to_name:    "Ram Ganesh",
+          from_email: form.email.trim(),
+          to_email:   "ramsrivatsang38@gmail.com",
+          message:    form.message.trim(),
+          reply_to:   form.email.trim(),
+        },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
         setLoading(false);
         setSent(true);
         setForm({ name: "", email: "", message: "" });
-        setTimeout(() => setSent(false), 5000);
+        setTimeout(() => setSent(false), 6000);
       })
-      .catch(() => {
+      .catch((err) => {
         setLoading(false);
-        alert("Ahh, something went wrong. Please try again.");
+        console.error("EmailJS error:", err);
+        alert(err?.text ?? "Something went wrong. Check the console for details.");
       });
   };
 
